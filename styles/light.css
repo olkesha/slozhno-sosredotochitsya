@@ -9,7 +9,7 @@
   --accent-color: #FF8DCB;
   --heading-color: #FFC2E6;
 
-  .header {
+  &.page {
     background-image: url(../images/cover-image-light.png);
   }
   
@@ -68,7 +68,7 @@
     --heading-color: #FFC2E6;
   }
 
-  .header {
+  .page {
     background-image: url(../images/cover-image-light.png);
   }
 

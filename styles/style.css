@@ -7,6 +7,12 @@
   font-family: var(--main-font), monospace;
   font-weight: 400;
   font-style: normal;
+
+  background-image: url(../images/cover-image-dark.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 
@@ -77,11 +83,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-
-  background-image: url(../images/cover-image-dark.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 .decorated-zone {
