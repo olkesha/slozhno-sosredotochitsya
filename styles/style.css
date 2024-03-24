@@ -2,4 +2,406 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--main-font), monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+/* components */
+.link {
+  text-shadow: 2px 2px 0px var(--accent-color);
+  text-decoration: none;
+
+  &:hover {
+    border-block-end: 1px solid currentColor; /* text-decoration дает доп. подчеркивание для text-shadow */
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--text-color);
+  }
+}
+
+.heading {
+  font-weight: 700;
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  line-height: 82.5%;
+
+  color: var(--heading-color);
+  text-shadow: 4px 4px 0px var(--accent-color);
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+
+  color: var(--accent-color);
+}
+
+.description__block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.description__block-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+
+  color: var(--bg-color);
+}
+
+.description__block-text {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+
+
+/* header */
+.header {
+  padding: 20px 0 134px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+
+  background-image: url(../images/cover-image-dark.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: '';
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 25px;
+  height: 25px;
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+}
+
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 25px;
+  height: 25px;
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
+}
+
+.header__theme-menu {
+  grid-column: span 2;
+  margin-block-end: 273px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  gap: 10px;
+}
+
+.header__theme-menu-item:hover .header__theme-menu-button_active {
+  border: 1px solid rgba(241, 178, 206, .5);
+}
+
+.header__theme-menu-button {
+  padding: 3px 13px ;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+
+  color: var(--accent-color);
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    border-block-end: 1px solid var(--accent-color);
+  }
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--accent-color);
+  pointer-events: none;
+}
+
+.header__heading {
+  grid-column: span 2;
+  justify-self: start;
+}
+
+.header__desc {
+  margin-inline-end: 20px;
+  grid-column: 2 / 3;
+  justify-self: end;
+
+  margin-block-start: 116px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+
+  color: var(--bg-color);
+}
+
+.header__rec {
+  position: absolute;
+  right: 29px;
+  top: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--accent-color);
+}
+
+.header__rec::after {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  background-color: var(--accent-color);
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
+}
+
+
+
+/* main */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 82px;
+
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
+  margin-block-start: 62px;
+  margin-block-end: 60px;
+}
+
+
+
+/* section why */
+.why {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+
+
+/* section what */
+.what {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+}
+
+.what__description {
+  grid-column: span 3;
+  margin-block-start: 2px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+
+/* how */
+.how {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.how .description__block .description__block-title {
+  font-weight: 400;
+}
+
+
+
+/* pictures */
+.pictures {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.picture-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  &.sunset, 
+  &.street {
+    grid-column: span 2;
+  }
+
+  &.ice-cream,
+  &.tape{
+    grid-row: span 2;
+  }
+}
+
+
+
+/* footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  aspect-ratio: 4/3; /* уже всю башку сломал с тем, как правильно размер футера оформить. Решил через aspect-ratio для разных бреикпоинтов*/
+}
+
+.footer__heading {
+  text-shadow: 2px 2px 0px var(--accent-color);
+}
+
+
+
+/* media-queries */
+@media (max-width: 768px) {
+  .header {
+    padding-block-start: 192px;
+    padding-block-end: 183px;
+  }
+  
+  .header__theme-menu {
+    justify-self: end;
+    margin-block-end: 173px;
+    margin-inline-end: 20px;
+  }
+  
+  .header__theme-menu-list {
+    flex-direction: column;
+  }
+  
+  .header__desc {
+    margin-block-start: 162px;
+  }
+  
+  .heading {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+
+  .what__description {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    aspect-ratio: 3/4;
+  }
+}
+
+@media (0 < width < 720px) {
+  .header {
+    grid-template-columns: 1fr;
+    padding: 75px 10px 66px;
+  }
+
+  .header__theme-menu {
+    margin-inline-end: 0;
+    margin-block-end: 65px;
+  }
+
+  .header__desc {
+    margin-inline-end: 0;
+    margin-block-start: 55px;
+  }
+
+  .decorated-zone::before {
+    right: 10px;
+    top: 10px;
+  }
+  
+  .decorated-zone::after {
+    left: 10px;
+    bottom: 10px;
+  }
+
+  .header__rec {
+    right: 19px;
+    top: 10px;
+  }
+
+  .main {
+    gap: 50px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+    margin-block-start: 40px;
+    margin-block-end: 40px;
+  }
+
+  .why {
+    grid-template-columns: 1fr;
+  }
+
+  .what__description {
+    grid-template-columns: 1fr;
+  }
+
+  .how {
+    grid-template-columns: 1fr;
+  }
+
+  .picture-images {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .image {
+    &.sunset {
+      grid-column: 1;
+    }
+
+    &.image.street {
+      grid-column: 1;
+    }
+  }
+
+  .footer {
+    aspect-ratio: .56;
+  }
 }

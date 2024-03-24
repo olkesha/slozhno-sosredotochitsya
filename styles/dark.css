@@ -3,10 +3,14 @@
   здесь окажутся стили, которые нужно переопределить принудительно,
   переключая тему
 */
+.theme_dark {
+  --text-color: #F1B2CE;
+  --bg-color: #000028;
+  --accent-color: #FF0070;
+  --heading-color: #DB00FF;
+  --main-font: 'IBM Plex mono';
+}
 
-.page.theme_dark {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+.theme_dark .header {
+  background-image: url(../images/cover-image-dark.png);
 }
