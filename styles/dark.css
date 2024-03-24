@@ -10,7 +10,3 @@
   --heading-color: #DB00FF;
   --main-font: 'IBM Plex mono';
 }
-
-.theme_dark .page {
-  background-image: url(../images/cover-image-dark.png);
-}

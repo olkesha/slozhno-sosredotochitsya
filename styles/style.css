@@ -17,6 +17,60 @@
 
 
 
+/* theme_light */
+.theme_light {
+  &.page {
+    background-image: url(../images/cover-image-light.png);
+  }
+  
+  .header__desc {
+    color: var(--text-color);
+  }
+  
+  .heading {
+    text-shadow: 4px 4px 0px #FF0070;
+  }
+
+  .header__theme-menu-button:hover {
+    border: 1px solid rgba(53, 52, 48, .5);
+  }
+  
+  .header__theme-menu-button {
+    color: var(--text-color);
+  
+    &:focus-visible {
+      border-bottom: 1px solid var(--text-color);
+    }
+  }
+  
+  .header__theme-menu-button_active {
+    border: 1px solid var(--text-color);
+  }
+  
+  .title {
+    color: var(--text-color);
+  }
+  
+  .description__block-title {
+    color: var(--text-color);
+  }
+  
+  .decorated-zone::before {
+    border-block-start: 1px solid var(--text-color);
+    border-inline-end: 1px solid var(--text-color);
+  }
+  
+  .decorated-zone::after {
+    border-block-end: 1px solid var(--text-color);
+    border-inline-start: 1px solid var(--text-color);
+  }
+  
+  .header__rec {
+    display: none;
+  }
+}
+
+
 /* components */
 .link {
   text-shadow: 2px 2px 0px var(--accent-color);
@@ -79,10 +133,11 @@
 
 /* header */
 .header {
-  padding: 20px 0 134px;
+  height: 100vh;
+  min-height: 668px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  grid-template-columns: 1fr min-content 1fr;
+  grid-template-rows: 1fr min-content 1fr;
 }
 
 .decorated-zone {
@@ -112,8 +167,9 @@
 }
 
 .header__theme-menu {
-  grid-column: span 2;
-  margin-block-end: 273px;
+  grid-column: span 3;
+  justify-self: center;
+  margin-block-start: 20px;
 }
 
 .header__theme-menu-list {
@@ -121,7 +177,7 @@
   gap: 10px;
 }
 
-.header__theme-menu-item:hover .header__theme-menu-button_active {
+.header__theme-menu-button:hover {
   border: 1px solid rgba(241, 178, 206, .5);
 }
 
@@ -134,6 +190,7 @@
 
   color: var(--accent-color);
   background-color: transparent;
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -150,16 +207,16 @@
 }
 
 .header__heading {
-  grid-column: span 2;
+  grid-column: span 3;
   justify-self: start;
 }
 
 .header__desc {
+  margin-block-end: 20px;
   margin-inline-end: 20px;
-  grid-column: 2 / 3;
-  justify-self: end;
+  grid-column: 3/4;
+  align-self: center;
 
-  margin-block-start: 116px;
   font-weight: 700;
   font-size: 18px;
   line-height: 23px;
@@ -178,6 +235,7 @@
 
   font-size: 18px;
   line-height: 25px;
+  text-transform: uppercase;
   color: var(--accent-color);
 }
 
@@ -186,7 +244,7 @@
   display: inline-block;
   width: 9px;
   height: 9px;
-  border-radius: 100%;
+  border-radius: 50%;
   background-color: var(--accent-color);
   box-shadow: 0px 0px 4px 2px var(--accent-color);
 }
@@ -211,7 +269,7 @@
 .why {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 20px;
+  gap: 10px;
 }
 
 .description {
@@ -245,7 +303,7 @@
 .how {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 20px;
+  gap: 10px;
 }
 
 .how .description__block .description__block-title {
@@ -288,12 +346,11 @@
 
 /* footer */
 .footer {
+  height: 100vh;
+  min-height: 668px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 100%;
-  aspect-ratio: 4/3; /* уже всю башку сломал с тем, как правильно размер футера оформить. Решил через aspect-ratio для разных бреикпоинтов*/
 }
 
 .footer__heading {
@@ -303,24 +360,22 @@
 
 
 /* media-queries */
-@media (max-width: 768px) {
-  .header {
-    padding-block-start: 192px;
-    padding-block-end: 183px;
-  }
-  
+@media (max-width: 768px) {  
   .header__theme-menu {
     justify-self: end;
-    margin-block-end: 173px;
+    align-self: center;
     margin-inline-end: 20px;
+    margin-block-start: 22px;
   }
   
   .header__theme-menu-list {
     flex-direction: column;
+    gap: 12px;
   }
-  
-  .header__desc {
-    margin-block-start: 162px;
+
+  .why,
+  .how {
+    gap: 20px;
   }
   
   .heading {
@@ -330,26 +385,21 @@
   .what__description {
     grid-template-columns: 1fr;
   }
-
-  .footer {
-    aspect-ratio: 3/4;
-  }
 }
 
 @media (0 < width < 720px) {
   .header {
     grid-template-columns: 1fr;
-    padding: 75px 10px 66px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
   }
 
   .header__theme-menu {
     margin-inline-end: 0;
-    margin-block-end: 65px;
   }
 
   .header__desc {
     margin-inline-end: 0;
-    margin-block-start: 55px;
   }
 
   .decorated-zone::before {
@@ -400,9 +450,5 @@
     &.image.street {
       grid-column: 1;
     }
-  }
-
-  .footer {
-    aspect-ratio: .56;
   }
 }
