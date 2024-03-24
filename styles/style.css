@@ -278,7 +278,7 @@
   }
 
   &.ice-cream,
-  &.tape{
+  &.tape {
     grid-row: span 2;
   }
 }
